@@ -2,12 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct song_node{
-  char name[256];
-  char artist[256];
-  struct song_node *next;
+typedef struct song_node {
+    char name[256];
+    char artist[256];
+    struct song_node *next;
 } song_node;
-
 
 void print_list(song_node* node) {
     while (node != 0) {
@@ -16,11 +15,11 @@ void print_list(song_node* node) {
     }
 }
 
-song_node insert_front(song_node* node, char* name, char* artist) {
-    song_node new;
-    strncpy(new.name, name, 256);
-    strncpy(new.artist, artist, 256);
-    new.next = node;
+song_node* insert_front(song_node* node, char* name, char* artist) {
+    song_node* new = (song_node*) malloc(sizeof(song_node));
+    strncpy(new->name, name, 256);
+    strncpy(new->artist, artist, 256);
+    new->next = node;
     return new;
 }
 
@@ -36,7 +35,3 @@ void free_list(song_node* cur_node) {
 //and later:
 
 song_node *table[26];
-
-int main() {
-    return 0;
-}
