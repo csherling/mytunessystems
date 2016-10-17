@@ -94,6 +94,30 @@ song_node* remove_node(song_node* node, song_node* to_remove) {
     return node;
 }
 
+int count_songs(song_node* songs) {
+    int n = 0;
+    while (songs != 0) {
+        n++;
+        songs = songs->next;
+    }
+    return n;
+}
+
+song_node* find_by_index(song_node* node, int index) {
+    int i;
+    for (i = 0; i < index; i++) {
+        if (node == 0) {
+            return 0;
+        }
+        node = node->next;
+    }
+    return node;
+}
+
+song_node* select_random(song_node* node) {
+    return find_by_index(node, rand() % count_songs(node));
+}
+
 void free_list(song_node* cur_node) {
     song_node* next;
     while (cur_node != 0) {

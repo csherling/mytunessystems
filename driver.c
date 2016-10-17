@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "songs.h"
 
 int main() {
@@ -42,9 +43,34 @@ int main() {
     print_list(find_by_artist(songs, "rolling stones"));
     printf("\n");
 
+    printf("songs has %d songs\n\n", count_songs(songs));
+
+    // Test random selection
+    printf("random selection:\n");
+    print_list(select_random(songs));
+    printf("\n\n");
+
+    printf("random selection:\n");
+    print_list(select_random(songs));
+    printf("\n\n");
+
+    printf("random selection:\n");
+    print_list(select_random(songs));
+    printf("\n\n");
+
+    printf("random selection:\n");
+    print_list(select_random(songs));
+    printf("\n\n");
+
+    printf("random selection:\n");
+    print_list(select_random(songs));
+    printf("\n\n");
+
+    // Test removal
     songs = remove_node(songs, songs->next);
     printf("songs with its second entry removed:\n");
     print_list(songs);
+    printf("\n\n");
 
     free_list(songs);
     return 0;
