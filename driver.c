@@ -42,6 +42,10 @@ int main() {
     print_list(find_by_artist(songs, "rolling stones"));
     printf("\n");
 
+    songs = remove_node(songs, songs->next);
+    printf("songs with its second entry removed:\n");
+    print_list(songs);
+
     free_list(songs);
     return 0;
 }
