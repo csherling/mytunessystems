@@ -23,6 +23,44 @@ song_node* insert_front(song_node* node, char* name, char* artist) {
     return new;
 }
 
+int songnodecmp(song_node* a, char* name, char* artist) {
+    int by_artist = strcmp(a->artist, artist);
+    if (by_artist == 0) {
+        return strcmp(a->name, name);
+    }
+    return by_artist;
+}
+
+song_node* insert_ordered(song_node* node, char* name, char* artist) {
+    if (songnodecmp(node, name, artist) > 0) {
+        return insert_front(node, name, artist);
+    } else {
+        song_node* leftnode = node;
+        song_node* rightnode = node->next;
+        while (1) {
+            if (rightnode == 0) {
+                // Allocate and create new song_node
+                song_node* last = (song_node*) malloc(sizeof(song_node));
+                strncpy(last->name, name, 256);
+                strncpy(last->artist, artist, 256);
+
+                // Append new song_node to the list
+                last->next = 0;
+                leftnode->next = last;
+                break;
+            }
+            if (songnodecmp(rightnode, name, artist) > 0) {
+                leftnode->next = insert_front(rightnode, name, artist);
+                break;
+            }
+            // Step forward:
+            leftnode = rightnode;
+            rightnode = rightnode->next;
+        }
+        return node;
+    }
+}
+
 void free_list(song_node* cur_node) {
     song_node* next;
     while (cur_node != 0) {
