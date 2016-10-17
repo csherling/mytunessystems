@@ -13,3 +13,13 @@ int count_songs(song_node* songs);
 song_node* find_by_index(song_node* node, int index);
 song_node* select_random(song_node* node);
 void free_list(song_node* cur_node);
+
+void add_song(song_node *playlist, char *name, char *artist);
+song_node* search_song(char *song, song_node *playlist);
+song_node* search_artist(char *artist, song_node *playlist);
+void print_letter(char letter, song_node *playlist);
+void artist_songs(char *artist, song_node *playlist);
+void print_library(song_node *playlist);
+void shuffle(song_node *playlist);
+void delete_song(char *song, song_node *playlist);
+void delete_nodes(song_node *playlist);

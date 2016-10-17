@@ -3,7 +3,16 @@
 #include "songs.h"
 
 int main() {
-    // Test insertion functions:
+  song_node plist[26];
+
+  add_song(plist, "time", "pinkfloyd");
+  add_song(plist, "thunderstruck", "acdc");
+  add_song(plist, "alive", "pearl jam"); 
+
+  print_library(plist);
+  
+  
+  // Test insertion functions:
     song_node* songs = insert_front(0, "time", "pink floyd");
     songs = insert_ordered(songs, "thunderstruck", "ac/dc");
     songs = insert_ordered(songs, "alive", "pearl jam");
