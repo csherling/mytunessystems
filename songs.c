@@ -71,6 +71,16 @@ song_node* find_by_name(song_node* node, char* name) {
     return 0;
 }
 
+song_node* find_by_artist(song_node* node, char* artist) {
+    while (node != 0) {
+        if (strcmp(node->artist, artist) == 0) {
+            return node;
+        }
+        node = node->next;
+    }
+    return 0;
+}
+
 void free_list(song_node* cur_node) {
     song_node* next;
     while (cur_node != 0) {
