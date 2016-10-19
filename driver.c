@@ -3,14 +3,35 @@
 #include "songs.h"
 
 int main() {
-  song_node plist[26];
+  song_node * plist[26];
+  int i;
+  for (i = 0; i < 26; i++) {
+    plist[i] = (song_node *)malloc(sizeof(song_node));
+    plist[i]->artist[0] = 0;
+  }
 
-  add_song(plist, "time", "pinkfloyd");
-  add_song(plist, "thunderstruck", "acdc");
-  add_song(plist, "alive", "pearl jam"); 
+  printf("hhhhhey yaaaa\n");
 
+  add_song(&plist[0], "time", "pinkfloyd");
+  add_song(&plist[0], "thunderstruck", "acdc");
+  add_song(&plist[0], "alive", "pearl jam");
+  add_song(&plist[0], "alivennn", "pearl jamnnn");
+
+  printf("hey yaaa\n");
   print_library(plist);
-  
+
+  print_list(search_song("time", &plist[0]));
+  printf("searched\n\n");
+
+  print_list(search_artist("acdc", &plist[0]));
+  printf("searched\n\n");
+
+  print_letter('a', &plist[0]);
+  print_letter('p', &plist[0]);
+  printf("printed\n\n");
+
+  artist_songs("acdc", &plist[0]);
+  printf("artists\n\n");
   
   // Test insertion functions:
     song_node* songs = insert_front(0, "time", "pink floyd");
