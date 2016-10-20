@@ -85,6 +85,16 @@ song_node* find_by_artist(song_node* node, char* artist) {
     return 0;
 }
 
+song_node* find_song(song_node* node, char* name, char* artist) {
+    while (node != 0) {
+        if (strcmp(node->artist, artist) == 0 && strcmp(node->name, name) == 0) {
+            return node;
+        }
+        node = node->next;
+    }
+    return 0;
+}
+
 song_node* remove_node(song_node* head, song_node* to_remove) {
     if (songnodecmp(head, to_remove->name, to_remove->artist) == 0) {
         return to_remove->next;
@@ -134,7 +144,3 @@ void free_list(song_node* cur_node) {
         cur_node = next;
     }
 }
-
-//and later:
-
-song_node *table[26];

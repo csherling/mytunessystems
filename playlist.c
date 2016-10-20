@@ -38,17 +38,18 @@ void print_letter(char letter, song_node **playlist){
 }
 
 void artist_songs(char *artist, song_node **playlist){
-    song_node * slot = search_artist(artist, playlist);
-    printf("yes");
-    char* tmp;
-    while(strcmp(slot->artist, artist) == 0){
-        printf("yes1");
-        tmp = slot->name;
-        printf("here");
-        printf("%s\n", tmp);
-        printf("yes2");
+    song_node* slot = search_artist(artist, playlist);
+    if (slot == 0) {
+        return;
+    }
+    // Move slot up to the first song by `artist`
+    while (slot != 0 && strcmp(slot->artist, artist) != 0) {
         slot = slot->next;
-        printf("yes3");
+    }
+    // Print out each song by `artist`
+    while (slot != 0 && strcmp(slot->artist, artist) == 0){
+        printf("%s\n", slot->name);
+        slot = slot->next;
     }
 }
 
@@ -66,7 +67,6 @@ void print_library(song_node *playlist[26]){
 
 void shuffle(song_node **playlist, int leng){
     song_node * temp;
-    //for(; leng > 0; leng--){
     song_node* songs;
     while (leng > 0) {
         songs = playlist[rand() % 26];
@@ -79,17 +79,13 @@ void shuffle(song_node **playlist, int leng){
 
 }
 
-int delete_song(char *song, char *artist, song_node **playlist){
-    song_node* node = find_by_name(playlist[artist[0] - 'a'], song);
-    if (strcmp(node->artist, artist) != 0) {
+int delete_song(char *name, char *artist, song_node **playlist){
+    song_node* node = find_song(playlist[artist[0] - 'a'], name, artist);
+    if (node == 0) {
         return 1;
     }
-    printf("found by name :o)\n");
     playlist[artist[0] - 'a'] = remove_node(playlist[artist[0] - 'a'], node);
-
     return 0;
-
-    /* remove_node(*playlist, search_song(song, playlist)); */
 }
 
 void delete_nodes(song_node **playlist){

@@ -5,19 +5,19 @@
 
 int main() {
     srand(time(NULL));
-    song_node * plist[26];
+    song_node* plist[26];
     int i;
     for (i = 0; i < 26; i++) {
         plist[i] = 0;
-        //plist[i] = (song_node *)malloc(sizeof(song_node));
     }
 
     printf("hhhhhey yaaaa\n");
 
-    add_song(&plist[0], "time", "pink floyd");
-    add_song(&plist[0], "thunderstruck", "acdc");
-    add_song(&plist[0], "alive", "pearl jam");
-    add_song(&plist[0], "alivennn", "pearl jamnnn");
+    add_song(plist, "time", "pink floyd");
+    add_song(plist, "thunderstruck", "acdc");
+    add_song(plist, "alive", "pearl jam");
+    add_song(plist, "back in black", "acdc");
+    add_song(plist, "alivennn", "pearl jamnnn");
 
     printf("hey yaaa\n");
     print_library(plist);
@@ -39,15 +39,21 @@ int main() {
     shuffle(plist, 50);
     printf("\n\n");
 
+    printf("songs by pearl jam:\n");
+    artist_songs("pearl jam", plist);
+    printf("\nsongs by acdc:\n");
+    artist_songs("acdc", plist);
+    printf("\n");
+
     delete_song("time","pink floyd", &plist[0]);
-    printf("deleted\n\n");
+    printf("deleted time by pink floyd:\n\n");
     print_library(plist);
-    printf("deleted\n\n");
+    printf("(end of nodes)\n\n");
 
     delete_nodes(plist);
-    printf("deleted\n\n");
+    printf("deleted all:\n\n");
     print_library(plist);
-    printf("deleted\n\n");
+    printf("(end of nodes)\n\n");
 
     // Test insertion functions:
     song_node* songs = insert_front(0, "time", "pink floyd");
