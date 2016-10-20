@@ -24,6 +24,9 @@ song_node* insert_front(song_node* node, char* name, char* artist) {
 }
 
 int songnodecmp(song_node* a, char* name, char* artist) {
+    if (a == 0) {
+        return 1;
+    }
     int by_artist = strcmp(a->artist, artist);
     if (by_artist == 0) {
         return strcmp(a->name, name);
@@ -82,17 +85,21 @@ song_node* find_by_artist(song_node* node, char* artist) {
     return 0;
 }
 
-song_node* remove_node(song_node* node, song_node* to_remove) {
-    if (songnodecmp(node, to_remove->name, to_remove->artist) == 0) {
+song_node* remove_node(song_node* head, song_node* to_remove) {
+    if (songnodecmp(head, to_remove->name, to_remove->artist) == 0) {
         return to_remove->next;
     }
+    song_node* node = head;
     while (node != 0) {
         if (songnodecmp(node->next, to_remove->name, to_remove->artist) == 0) {
+            // The condition guarantees that node->next is not NULL
             node->next = (node->next)->next;
             break;
         }
+        // Otherwise, advance node
+        node = node->next;
     }
-    return node;
+    return head;
 }
 
 int count_songs(song_node* songs) {
