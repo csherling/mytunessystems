@@ -14,7 +14,7 @@ int main() {
 
   printf("hhhhhey yaaaa\n");
 
-  add_song(&plist[0], "time", "pinkfloyd");
+  add_song(&plist[0], "time", "pink floyd");
   add_song(&plist[0], "thunderstruck", "acdc");
   add_song(&plist[0], "alive", "pearl jam");
   add_song(&plist[0], "alivennn", "pearl jamnnn");
@@ -35,12 +35,9 @@ int main() {
   print_letter('p', &plist[0]);
   printf("printed\n\n\n\n\n\n\n\n");
 
-  printf("RIGHT BEFORE THA TPINK THING!\n");
+  printf("shuffle of 50 songs:\n");
   shuffle(plist, 50);
-  printf("shuffled\n\n");
-  
-  /* artist_songs("acdc", &plist[0]); */
-  /* printf("artists\n\n"); */
+  printf("\n\n");
 
   delete_song("time","pink floyd", &plist[0]);
   printf("deleted\n\n");
@@ -51,7 +48,7 @@ int main() {
   printf("deleted\n\n");
   print_library(plist);
   printf("deleted\n\n");
-  
+
   // Test insertion functions:
     song_node* songs = insert_front(0, "time", "pink floyd");
     songs = insert_ordered(songs, "thunderstruck", "ac/dc");
@@ -116,8 +113,13 @@ int main() {
     printf("\n\n");
 
     // Test removal
-    songs = remove_node(songs, songs->next);
-    printf("songs with its second entry removed:\n");
+    songs = remove_node(songs, songs->next->next);
+    printf("songs with its third entry removed:\n");
+    print_list(songs);
+    printf("\n\n");
+
+    songs = remove_node(songs, songs);
+    printf("now with its first entry removed:\n");
     print_list(songs);
     printf("\n\n");
 

@@ -99,11 +99,9 @@ void print_library(song_node *playlist[26]){
   int i = 0;
   if(playlist[0] != 0){
     for(; i < 26; i++){
-      printf("%d\n", i + 97);
+      printf("%c:\n", (char) i + 'A');
       if (playlist[i] != 0) {
-	print_list(playlist[i]);
-      } else {
-	printf("\n");
+          print_list(playlist[i]);
       }
     }
   }
@@ -124,10 +122,15 @@ void shuffle(song_node **playlist, int leng){
 
 }
 
-void delete_song(char *song, char *artist, song_node **playlist){
+int delete_song(char *song, char *artist, song_node **playlist){
   song_node* node = find_by_name(playlist[artist[0] - 'a'], song);
+  if (strcmp(node->artist, artist) != 0) {
+      return 1;
+  }
   printf("found by name :o)\n");
   playlist[artist[0] - 'a'] = remove_node(playlist[artist[0] - 'a'], node);
+
+  return 0;
 
   /* remove_node(*playlist, search_song(song, playlist)); */
 }
