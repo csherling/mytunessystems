@@ -9,7 +9,7 @@ int main() {
   int i;
   for (i = 0; i < 26; i++) {
     plist[i] = 0;
-    plist[i] = (song_node *)malloc(sizeof(song_node));
+    //plist[i] = (song_node *)malloc(sizeof(song_node));
   }
 
   printf("hhhhhey yaaaa\n");
@@ -28,20 +28,24 @@ int main() {
   print_list(search_artist("acdc", &plist[0]));
   printf("searched\n\n");
 
+  print_list(search_artist("pearl jam", &plist[0]));
+  printf("searched\n\n");
+
   print_letter('a', &plist[0]);
   print_letter('p', &plist[0]);
   printf("printed\n\n\n\n\n\n\n\n");
 
+  printf("RIGHT BEFORE THA TPINK THING!\n");
   shuffle(plist, 50);
   printf("shuffled\n\n");
   
   /* artist_songs("acdc", &plist[0]); */
   /* printf("artists\n\n"); */
 
-  /* delete_song("time","pink floyd", &plist[0]); */
-  /* printf("deleted\n\n"); */
-  /* print_library(plist); */
-  /* printf("deleted\n\n"); */
+  delete_song("time","pink floyd", &plist[0]);
+  printf("deleted\n\n");
+  print_library(plist);
+  printf("deleted\n\n");
 
   delete_nodes(plist);
   printf("deleted\n\n");
