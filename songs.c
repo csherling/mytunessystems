@@ -40,7 +40,8 @@ song_node* insert_ordered(song_node* node, char* name, char* artist) {
         while (1) {
             if (rightnode == 0) {
                 // Allocate and create new song_node
-                song_node* last = (song_node*) malloc(sizeof(song_node));
+	      song_node* last = 0;
+	      last = (song_node*) malloc(sizeof(song_node));
                 strncpy(last->name, name, 256);
                 strncpy(last->artist, artist, 256);
 

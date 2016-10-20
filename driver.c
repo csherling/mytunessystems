@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "songs.h"
 
 int main() {
+  srand(time(NULL));
   song_node * plist[26];
   int i;
   for (i = 0; i < 26; i++) {
+    plist[i] = 0;
     plist[i] = (song_node *)malloc(sizeof(song_node));
-    plist[i]->artist[0] = 0;
   }
 
   printf("hhhhhey yaaaa\n");
@@ -28,10 +30,23 @@ int main() {
 
   print_letter('a', &plist[0]);
   print_letter('p', &plist[0]);
-  printf("printed\n\n");
+  printf("printed\n\n\n\n\n\n\n\n");
 
-  artist_songs("acdc", &plist[0]);
-  printf("artists\n\n");
+  shuffle(plist, 50);
+  printf("shuffled\n\n");
+  
+  /* artist_songs("acdc", &plist[0]); */
+  /* printf("artists\n\n"); */
+
+  /* delete_song("time","pink floyd", &plist[0]); */
+  /* printf("deleted\n\n"); */
+  /* print_library(plist); */
+  /* printf("deleted\n\n"); */
+
+  delete_nodes(plist);
+  printf("deleted\n\n");
+  print_library(plist);
+  printf("deleted\n\n");
   
   // Test insertion functions:
     song_node* songs = insert_front(0, "time", "pink floyd");
