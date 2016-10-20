@@ -57,8 +57,8 @@ void print_library(song_node *playlist[26]){
     int i = 0;
     if(playlist[0] != 0){
         for(; i < 26; i++){
-            printf("%c:\n", (char) i + 'A');
             if (playlist[i] != 0) {
+                printf("%c:\n", (char) i + 'A');
                 print_list(playlist[i]);
             }
         }
