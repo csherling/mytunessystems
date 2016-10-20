@@ -20,7 +20,6 @@ void add_song(song_node** playlist, char * name, char * artist){
     /* free(slot); */
 
 
-    
     /* memcpy(slot->name, name, sizeof(slot->name)); */
     /* memcpy(slot->artist, artist, sizeof(slot->artist)); */
   }
@@ -126,9 +125,9 @@ void shuffle(song_node **playlist, int leng){
 }
 
 void delete_song(char *song, char *artist, song_node **playlist){
-  find_by_name(playlist[artist[0] - 'a'], song);
+  song_node* node = find_by_name(playlist[artist[0] - 'a'], song);
   printf("found by name :o)\n");
-  playlist[artist[0] - 'a'] = remove_node(playlist[artist[0] - 'a'], );
+  playlist[artist[0] - 'a'] = remove_node(playlist[artist[0] - 'a'], node);
 
   /* remove_node(*playlist, search_song(song, playlist)); */
 }
