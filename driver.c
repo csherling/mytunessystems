@@ -23,13 +23,13 @@ int main() {
 
     printf("Searching for various things:\n");
     printf("For time (song):\n");
-    print_list(search_song("time", &plist[0]));
+    print_song(search_song("time", &plist[0]));
 
-    printf("For acdc (artist):\n");
-    print_list(search_artist("acdc", &plist[0]));
+    printf("For a song by acdc:\n");
+    print_song(search_artist("acdc", &plist[0]));
 
-    printf("For pearl jam (artist):\n");
-    print_list(search_artist("pearl jam", &plist[0]));
+    printf("For a song by pearl jam:\n");
+    print_song(search_artist("pearl jam", &plist[0]));
 
     printf("\n\n");
 
@@ -78,58 +78,58 @@ int main() {
 
     // Test find_by_name:
     printf("find_by_name(songs, \"alive\") -->\n");
-    print_list(find_by_name(songs, "alive"));
+    print_song(find_by_name(songs, "alive"));
     printf("\n");
 
     printf("find_by_name(songs, \"thunderstruck\") -->\n");
-    print_list(find_by_name(songs, "thunderstruck"));
+    print_song(find_by_name(songs, "thunderstruck"));
     printf("\n");
 
     printf("find_by_name(songs, \"time\") -->\n");
-    print_list(find_by_name(songs, "time"));
+    print_song(find_by_name(songs, "time"));
     printf("\n");
 
     printf("find_by_name(songs, \"sympathy for the devil\") -->\n");
-    print_list(find_by_name(songs, "sympathy for the devil"));
+    print_song(find_by_name(songs, "sympathy for the devil"));
     printf("\n");
 
     // Test find_by_artist:
     printf("find_by_artist(songs, \"pearl jam\") -->\n");
-    print_list(find_by_artist(songs, "pearl jam"));
+    print_song(find_by_artist(songs, "pearl jam"));
     printf("\n");
 
     printf("find_by_artist(songs, \"ac/dc\") -->\n");
-    print_list(find_by_artist(songs, "ac/dc"));
+    print_song(find_by_artist(songs, "ac/dc"));
     printf("\n");
 
     printf("find_by_artist(songs, \"pink floyd\") -->\n");
-    print_list(find_by_artist(songs, "pink floyd"));
+    print_song(find_by_artist(songs, "pink floyd"));
     printf("\n");
 
     printf("find_by_artist(songs, \"rolling stones\") -->\n");
-    print_list(find_by_artist(songs, "rolling stones"));
+    print_song(find_by_artist(songs, "rolling stones"));
     printf("\n\n");
 
     printf("Testing random selection of song nodes:\n");
 
     printf("random selection:\n");
-    print_list(select_random(songs));
+    print_song(select_random(songs));
     printf("\n\n");
 
     printf("random selection:\n");
-    print_list(select_random(songs));
+    print_song(select_random(songs));
     printf("\n\n");
 
     printf("random selection:\n");
-    print_list(select_random(songs));
+    print_song(select_random(songs));
     printf("\n\n");
 
     printf("random selection:\n");
-    print_list(select_random(songs));
+    print_song(select_random(songs));
     printf("\n\n");
 
     printf("random selection:\n");
-    print_list(select_random(songs));
+    print_song(select_random(songs));
     printf("\n\n\n");
 
     printf("Testing removal functions:\n");

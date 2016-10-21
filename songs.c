@@ -15,6 +15,14 @@ void print_list(song_node* node) {
     }
 }
 
+int print_song(song_node* node) {
+    if (node == 0) {
+        return 1;
+    }
+    printf("%s - %s\n", node->name, node->artist);
+    return 0;
+}
+
 song_node* insert_front(song_node* node, char* name, char* artist) {
     song_node* new = (song_node*) malloc(sizeof(song_node));
     strncpy(new->name, name, 256);
