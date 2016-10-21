@@ -4,6 +4,7 @@
 #include <time.h>
 
 #include "songs.h"
+#include "playlist.h"
 
 void add_song(song_node** playlist, char * name, char * artist){
     char first = artist[0];

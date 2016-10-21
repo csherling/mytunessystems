@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "songs.h"
+#include "playlist.h"
 
 int main() {
     srand(time(NULL));
@@ -16,6 +17,12 @@ int main() {
     add_song(plist, "alive", "pearl jam");
     add_song(plist, "back in black", "acdc");
     add_song(plist, "alivennn", "pearl jamnnn");
+    add_song(plist, "fireflies", "owl city");
+    add_song(plist, "viva la vida", "coldplay");
+    add_song(plist, "check yes juliet", "we the kings");
+    add_song(plist, "talking to the moon", "bruno mars");
+    add_song(plist, "skywave avenue", "we the kings");
+    add_song(plist, "vanilla twilight", "owl city");
 
     printf("Library:\n");
     print_library(plist);
